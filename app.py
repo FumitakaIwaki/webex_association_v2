@@ -20,9 +20,9 @@ def index():
 @app.route("/finish", methods=['GET', 'POST'])
 def fin():
     data = dict(request.form)
-    df = pd.read_csv("data/ex_result.csv")
     res_df = pd.DataFrame(data, index=[CNT])
-    pd.concat([df, res_df], axis=0).to_csv("data/ex_result.csv", index=False)
+    df = pd.read_csv("data/result.csv")
+    pd.concat([df, res_df], axis=0).to_csv("data/result.csv", index=False)
 
     return render_template('finish.html')
 
