@@ -1,0 +1,15 @@
+.introduction {
+  padding: 20px;              /* 余白指定 */
+  text-align:  center;        /* 中央寄せ */
+  /* background-color:  #ddd;     */
+  height: 100px;  
+}
+.experiment {
+  padding: 20px;
+  text-align:  center;
+  height: 100px;  
+}
+.ex {
+  margin-left: 200px;
+  text-align: left;
+}
