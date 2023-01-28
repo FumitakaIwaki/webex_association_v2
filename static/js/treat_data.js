@@ -1,8 +1,8 @@
 function get_value() {
-  let data = {}
+  let data = {};
 
   const cnt = document.getElementById("counter");
-  data['qnum'] = (cnt.value % 2) + 1
+  data['qnum'] = (cnt.value % 2) + 1;
 
   elements = document.getElementsByName('jender');
   let len = elements.length;
@@ -16,6 +16,4 @@ function get_value() {
   data['ex1'] = document.getElementById('ex1').value;
   data['ex2'] = document.getElementById('ex2').value;
   data['ex3'] = document.getElementById('ex3').value;
-
-  console.log(data)
 }

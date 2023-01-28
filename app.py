@@ -21,7 +21,7 @@ def index():
 def fin():
     data = dict(request.form)
     res_df = pd.DataFrame(data, index=[CNT])
-    print(res_df)
+    res_df['qnum'] = (res_df['qnum'].astype(int) % 2) + 1
     df = pd.read_csv("data/result.csv")
     pd.concat([df, res_df], axis=0).to_csv("data/result.csv", index=False)
 
