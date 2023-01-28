@@ -13,7 +13,6 @@ CNT = 0
 @app.route("/")
 def index():
     global CNT
-    CNT+=1
     return render_template('index.html', cnt=CNT)
 
 # 終了画面

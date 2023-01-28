@@ -2,7 +2,7 @@ import pandas as pd
 
 def init():
   df = pd.DataFrame(columns=[
-    'qnum'
+    'qnum',
     'jender',
     'age',
     'ex1',
