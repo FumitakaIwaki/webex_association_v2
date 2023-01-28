@@ -27,6 +27,6 @@ def fin():
     return render_template('finish.html')
 
 if __name__ == "__main__":
-    # df = init.init()
+    df = init.init()
 
     app.run(host="0.0.0.0", port=5000, debug=True)
