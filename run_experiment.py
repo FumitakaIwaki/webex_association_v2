@@ -1,5 +1,5 @@
 # AWS EC2へのssh接続
-# ssh -i ~/.ssh/iwaki.pem ec2-user@ec2-13-112-62-45.ap-northeast-1.compute.amazonaws.com
+# ssh -i ~/.ssh/iwaki.pem ec2-user@ec2-54-199-34-112.ap-northeast-1.compute.amazonaws.com
 
 from flask import Flask, render_template, request
 import pandas as pd
