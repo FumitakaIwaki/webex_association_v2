@@ -1,7 +1,7 @@
 function get_value() {
   let data = {};
 
-  data['qnum'] = document.getElementById('counter').value;
+  data['qnum'] = document.getElementById('counter').value % 2;
 
   elements = document.getElementsByName('jender');
   let len = elements.length;

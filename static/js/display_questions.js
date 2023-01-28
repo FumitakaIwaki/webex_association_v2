@@ -32,7 +32,7 @@ function embed_text() {
   // 問題データ
   const questoins = read_json("static/js/question.json");
   // カウンター
-  let qnum  = "q" + document.getElementById("counter").value;
+  let qnum  = "q" + (document.getElementById("counter").value % 2);
 
   // 問題ラベル
   const ElemT = document.getElementsByName("lab-t");

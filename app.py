@@ -7,12 +7,13 @@ import init
  
 app = Flask(__name__)
 # カウンター
-CNT = 0
+CNT = -1
  
 # 実験画面
 @app.route("/")
 def index():
     global CNT
+    CNT+=1
     return render_template('index.html', cnt=CNT)
 
 # 終了画面
@@ -20,7 +21,7 @@ def index():
 def fin():
     data = dict(request.form)
     res_df = pd.DataFrame(data, index=[CNT])
-    res_df['qnum'] = (res_df['qnum'].astype(int) % 2) + 1
+    res_df['qnum'] = res_df['qnum'].astype(int) % 2
     df = pd.read_csv("data/result.csv")
     pd.concat([df, res_df], axis=0).to_csv("data/result.csv", index=False)
 
