@@ -1,33 +1,40 @@
 # AWS EC2へのssh接続
 # ssh -i ~/.ssh/iwaki.pem ec2-user@ec2-54-199-34-112.ap-northeast-1.compute.amazonaws.com
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import pandas as pd
-import init 
  
 app = Flask(__name__)
 # カウンター
 CNT = -1
- 
-# 実験画面
+
+# 導入画面
 @app.route("/")
 def index():
+    return render_template('header.html')
+ 
+# 実験画面
+@app.route("/experiment")
+def experiment():
     global CNT
     CNT+=1
+
     return render_template('index.html', cnt=CNT)
+
+# データポスト
+@app.route("/post_data", methods=['GET', 'POST'])
+def post():
+    data = request.get_json()
+    res_df = pd.DataFrame(data, index=[CNT])
+    res_df.to_csv(f"data/res{CNT}.csv", index=False)
+
+    return jsonify(data)
 
 # 終了画面
 @app.route("/finish", methods=['GET', 'POST'])
 def fin():
-    data = dict(request.form)
-    res_df = pd.DataFrame(data, index=[CNT])
-    res_df['qnum'] = res_df['qnum'].astype(int) % 2
-    df = pd.read_csv("data/result.csv")
-    pd.concat([df, res_df], axis=0).to_csv("data/result.csv", index=False)
-
     return render_template('finish.html')
 
 if __name__ == "__main__":
-    df = init.init()
 
     app.run(host="0.0.0.0", port=5000, debug=True)

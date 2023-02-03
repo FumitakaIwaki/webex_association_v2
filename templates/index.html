@@ -6,67 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../static/stylesheet/style.css" rel="stylesheet" type="text/css" media="all">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script type="text/javascript" src="../static/js/treat_data.js"></script>
+  <script type="text/javascript" src="../static/js/post_data.js"></script>
   <script type="text/javascript" src="../static/js/display.js"></script>
-  <title>Web実験 実験参加者情報</title>
-
-  <!-- <script>
-    function check() {
-      if (info.age.value == ""){
-        alert("年齢を入力してください");
-        return false;
-      }else{
-        return true;
-      }
-    }
-  </script> -->
-
+  <title>実験</title>
 </head>
 
 <body>
-<form action="/finish" method="POST">
 <!-- カウンター -->
-  <input type="number" id="counter" name="qnum" value={{cnt}} style="display: none;">
+  <input type="number" id="counter" name="counter" value={{cnt}} style="display: none;">
+
 <!-- 最初の画面 -->
   <div id="introduction" class="introduction">
-    <p>あなたの性別を選択してください</p>
+    <h3>【あなたの性別を選択してください】</h3>
       <input type="radio" id="male" value=0 name="jender" checked><label for="male">男性</label>
       <input type="radio" id="female" value=1 name="jender"><label for="female">女性</label>
       <input type="radio" id="others" value=2 name="jender"><label for="others">その他</label>
       
-    <p>あなたの年齢を入力してください</p>
+    <h3>【あなたの年齢を入力してください】</h3>
       <input type="number" id="age" name="age">
 
-    <div><button type="button" onclick="hide_div()">次へ</button></div>
+    <div><button type="button" onclick="embed_block();rangevalue();inline_div(k=0);">次へ</button></div>
+
+    <h2>質問は全部で282問あります。</h2>
   </div>
+
 <!-- 実験の画面 -->
   <div id="experiment" class="experiment" style="display: none;">
-    <p>下に続く左の単語から右の単語をどれくらい連想するかを下の5段階からドラッグして選択してください。</p>
-    <p>「全く連想しない・やや連想する・連想する・かなり連想する・強く連想する」</p>
+    <h3>【以下の質問に下の8段階から回答をドラッグして選択してください】</h3>
+    <p class="point-scale">0：全く思わない 〜 7：強く思う</p>
+    <p id="page"></p>
 
-    <p class="ex">
-      <label name="lab-t"></label>→<label for="ex1" id="lab-ex1"></label>
-      <input type="range" id="ex1" value="0" name="ex1" min="0" max="4"></input>
-      <span id="ex1-value"></span>
-    </p>
+    <div class="ex-block" id="ex-block"></div>
 
-    <p class="ex">
-      <label name="lab-t"></label>→<label for="ex2" id="lab-ex2"></label>
-      <input type="range" id="ex2" value="0" name="ex2" min="0" max="4"></input>
-      <span id="ex2-value"></span>
-    </p>
-
-    <p class="ex">
-      <label name="lab-t"></label>→<label for="ex3" id="lab-ex3"></label>
-      <input type="range" id="ex3" value="0" name="ex3" min="0" max="4"></input>
-      <span id="ex3-value"></span>
-    </p>
-
-    <div><button type="submit" onclick="get_value()">回答</button></div>
   </div>
 
-</form>
-<script type="text/javascript" src="../static/js/display_questions.js"></script>
+<script type="text/javascript" src="../static/js/rangevalue.js"></script>
 </body>
 
 </html>
