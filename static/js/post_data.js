@@ -27,14 +27,12 @@ function get_value() {
     contentType: 'application/json',
     dataType: "json",
     success: function() { 
-      // window.location.href = "/finish";
       document.getElementById("experiment").style.display = "none";
       document.getElementById("end").style.display = "inline";
       window.scroll({top: 0, behavior: 'auto'});
     },
     error: function() {
       alert("サーバーエラー\nもう一度お試しください");
-      window.location.reload();
     }
   });
 }

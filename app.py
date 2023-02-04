@@ -1,6 +1,6 @@
 # AWS EC2へのssh接続
 # ssh -i ~/.ssh/iwaki.pem ec2-user@ec2-54-199-34-112.ap-northeast-1.compute.amazonaws.com
-# 起動
+# 起動(本番)
 # waitress-serve --port=5000 app:app
 
 from flask import Flask, render_template, request, jsonify
@@ -32,7 +32,7 @@ def post():
 
     return jsonify(data)
 
-# 終了画面
+# 終了画面（承認されなかった場合）
 @app.route("/finish", methods=['GET', 'POST'])
 def fin():
     return render_template('finish.html')
