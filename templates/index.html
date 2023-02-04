@@ -11,21 +11,31 @@
   <title>実験</title>
 </head>
 
+<script>
+  window.onload = function() {
+    embed_block();
+    rangevalue();
+  }
+</script>
+
 <body>
 <!-- カウンター -->
   <input type="number" id="counter" name="counter" value={{cnt}} style="display: none;">
 
 <!-- 最初の画面 -->
-  <div id="introduction" class="introduction">
+  <div id="introduction" class="introduction" style="display: inline;">
     <h3>【あなたの性別を選択してください】</h3>
+    <div>
       <input type="radio" id="male" value=0 name="jender" checked><label for="male">男性</label>
       <input type="radio" id="female" value=1 name="jender"><label for="female">女性</label>
       <input type="radio" id="others" value=2 name="jender"><label for="others">その他</label>
+    </div>
       
     <h3>【あなたの年齢を入力してください】</h3>
-      <input type="number" id="age" name="age">
+      <div><input type="number" id="age" name="age"></div>
 
-    <div><button type="button" onclick="embed_block();rangevalue();inline_div(k=0);">次へ</button></div>
+    <!-- <div><button type="button" onclick="embed_block();rangevalue();next_div(k=0);">次へ</button></div> -->
+    <div><button type="button" onclick="next_div(k=0);">次へ</button></div>
 
     <h2>質問は全部で282問あります。</h2>
   </div>
@@ -38,6 +48,16 @@
 
     <div class="ex-block" id="ex-block"></div>
 
+  </div>
+
+<!-- 終了画面 -->
+  <div id="end" class="end" style="display: none;">
+    <h3>お疲れ様でした。</h3>
+    <h2 id="userid" class="userid">調査完了ID: </h2>
+    <h3>
+      上のIDをCroudWorksに入力し、画面を閉じてください。<br>
+      ご協力ありがとうございました。
+    </h3>
   </div>
 
 <script type="text/javascript" src="../static/js/rangevalue.js"></script>

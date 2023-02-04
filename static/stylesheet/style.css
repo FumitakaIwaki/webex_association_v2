@@ -6,6 +6,7 @@
 }
 /* 承認画面ボタン内部 */
 .button-header{
+  margin: 4vw;
   padding: 20px;
   text-align: center;
   font-size: 150%;
@@ -29,19 +30,20 @@
 /* 8件法の説明部分 */
 .point-scale {
   margin: 0 35em;
-  background: #cfd6fa;
+  background: linear-gradient(to right, #cfd6fa, pink);
+  border-radius: 10px 10px 10px 10px;
 }
 /* 実験の質問全体 */
 .ex-block {
   margin-top: 100px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   text-align: center;
 }
 /* 実験の質問1つの「選択」部分 */
 .ex{
   padding: 0.5em 1em;
   margin: 2em 30em;
-  color: #5d627b;
+  color: black;
   background: white;
   border-top: solid 5px #5d627b;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
@@ -53,14 +55,79 @@
 /* 1つ目の単語 */
 .lab-t {
   font-weight: bold;
-  color: black;
 }
 /* 2つ目の単語 */
 .lab-ex {
   font-weight: bold;
-  color: black;
 }
 /* 選択した値 */
 .ex-value {
-  color: black;
+  color: rgb(0, 106, 255);
+  font-weight: bold;
+  margin-left: 2em;
+}
+/* 「戻る」「次へ」ボタン */
+.nb-button {
+  margin: 4vw;
+  padding: 1vw 1.6vw;
+}
+
+/* 終了ページ */
+.end {
+  padding: 20px;
+  text-align:  center;
+  height: 100px;  
+}
+.userid {
+  color: red;
+}
+
+
+/* PC画面より小さい画面 ~ タブレット用 */
+@media screen and (max-width: 1050px) {
+  .point-scale {
+    margin: 0 30vw;
+    background: linear-gradient(to right, #cfd6fa, pink);
+    border-radius: 10px 10px 10px 10px;
+  }
+  /* 実験の質問1つの「選択」部分 */
+  .ex{
+    padding: 0.5em 1em;
+    margin: 2em 25vw;
+    color: black;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  }
+}
+
+
+/* スマホ用 */
+@media screen and (max-width: 480px) {
+  /* 実験ページ */
+  /* 実験全体 */
+  .experiment {
+    text-align:  center;
+  }
+  /* 8件法の説明部分 */
+  .point-scale {
+    margin: 0 12vw;
+    padding: 0 0 0 0;
+    background: linear-gradient(to right, #cfd6fa, pink);
+    border-radius: 10px 10px 10px 10px;
+  }
+  /* 実験の質問全体 */
+  .ex-block {
+    margin-top: 50px;
+    text-align: center;
+  }
+  /* 実験の質問1つの「選択」部分 */
+  .ex{
+    padding: 0 0 0 0;
+    margin: 0 0 30px 0;
+    color: black;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  }
 }

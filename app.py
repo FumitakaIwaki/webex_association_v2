@@ -1,5 +1,7 @@
 # AWS EC2へのssh接続
 # ssh -i ~/.ssh/iwaki.pem ec2-user@ec2-54-199-34-112.ap-northeast-1.compute.amazonaws.com
+# 起動
+# waitress-serve --port=5000 app:app
 
 from flask import Flask, render_template, request, jsonify
 import pandas as pd

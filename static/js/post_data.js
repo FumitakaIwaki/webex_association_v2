@@ -2,7 +2,9 @@ function get_value() {
   let data = {};
 
   data['counter'] = Number(document.getElementById('counter').value);
-  data['id'] = Number(data['counter']);
+  var id = Math.round(Math.random() * 10000000);
+  data['id'] = (Array(7).join('0') + id).slice(-7);
+  document.getElementById('userid').innerHTML += data['id'];
 
   elements = document.getElementsByName('jender');
   let len = elements.length;
@@ -18,13 +20,17 @@ function get_value() {
     data['ex'+(i+1)] = Number(elements[i].value);
   }
 
+  // サーバーへ送信
   $.post({
     url: "/post_data",
     data: JSON.stringify(data, null, ' '),
     contentType: 'application/json',
     dataType: "json",
     success: function() { 
-      window.location.href = "/finish";
+      // window.location.href = "/finish";
+      document.getElementById("experiment").style.display = "none";
+      document.getElementById("end").style.display = "inline";
+      window.scroll({top: 0, behavior: 'auto'});
     },
     error: function() {
       alert("サーバーエラー\nもう一度お試しください");
