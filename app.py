@@ -1,5 +1,5 @@
 # AWS EC2へのssh接続
-# ssh -i ~/.ssh/iwaki.pem ec2-user@ec2-54-199-34-112.ap-northeast-1.compute.amazonaws.com
+# ssh -i ~/.ssh/iwaki.pem ec2-user@{Public IPv4 DNS}
 # 起動(本番)
 # waitress-serve --port=5000 app:app
 
