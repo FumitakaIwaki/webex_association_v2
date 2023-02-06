@@ -50,7 +50,7 @@ function embed_block() {
       let n = (g*E)+i+1;
       if (n > N) {break;}
       var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>は<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>に似ていると思いますか？
-      <p>全く思わない <input type="range" id="ex${n}" value="0" name="ex" min="0" max="7"></input> 強く思う</p>
+      <p>全く思わない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> 強く思う</p>
       <span id="ex${n}-value" name="ex-value" class="ex-value">回答してください</span></div>`;
       Elem[g].innerHTML += html;
     }
