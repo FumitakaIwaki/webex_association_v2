@@ -24,6 +24,12 @@
 
 <!-- 最初の画面 -->
   <div id="introduction" class="introduction" style="display: inline;">
+    <h2>可能な限りPCで参加してください</h2>
+    <h3>【日本語はあなたの母国語の1つですか？】</h3>
+    <div>
+      <input type="radio" id="yes" value=1 name="language" checked><label for="yes">はい</label>
+      <input type="radio" id="no" value=0 name="language"><label for="no">いいえ</label>
+    </div>
     <h3>【あなたの性別を選択してください】</h3>
     <div>
       <input type="radio" id="male" value=0 name="jender" checked><label for="male">男性</label>
@@ -32,12 +38,19 @@
     </div>
       
     <h3>【あなたの年齢を入力してください】</h3>
-      <div><input type="number" id="age" name="age"></div>
+      <div>
+        <select type="number" id="age" name="age">
+          <script>
+            for (let i=15; i < 101; i++) {
+              document.getElementById('age').innerHTML += `<option value="${i}">${i}</option>`;
+            }
+          </script>
+        </select>
+      </div>
 
-    <!-- <div><button type="button" onclick="embed_block();rangevalue();next_div(k=0);">次へ</button></div> -->
-    <div><button type="button" onclick="next_div(k=0);">次へ</button></div>
+    <h2>質問は全部で94問あります。</h2>
 
-    <h2>質問は全部で282問あります。</h2>
+    <div class="button-header-div"><button class="button-header" type="button" onclick="next_div(k=0);">次に進む</button></div>
   </div>
 
 <!-- 実験の画面 -->
@@ -53,7 +66,7 @@
 <!-- 終了画面 -->
   <div id="end" class="end" style="display: none;">
     <h3>お疲れ様でした。</h3>
-    <h2 id="userid" class="userid">調査完了ID: </h2>
+    <h2 id="userid" class="userid"></h2>
     <h3>
       上のIDをCroudWorksに入力し、画面を閉じてください。<br>
       ご協力ありがとうございました。

@@ -1,7 +1,7 @@
 // 質問数
-const N = 282;
+const N = 94;
 // 1ページに表示する質問数
-const E = 50;
+const E = 25;
 // 質問ページ数
 const G = Math.ceil(N / E);
 
@@ -25,7 +25,6 @@ function back_div(k) {
     document.getElementById("introduction").style.display = "inline";
     document.getElementById("experiment").style.display = "none";
     window.scroll({top: 0, behavior: 'auto'});
-    // document.getElementById('page').innerText = "質問ページ数 ： " + (k+1) + " / " + G;
   }else{
     document.getElementById("g"+(k-1)).style.display = "none";
     document.getElementById("g"+(k-2)).style.display = "inline";
@@ -50,16 +49,16 @@ function embed_block() {
     for (let i=0; i < E; i++) {
       let n = (g*E)+i+1;
       if (n > N) {break;}
-      var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>と<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>は、似ていると思いますか？
+      var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>は<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>に似ていると思いますか？
       <p>全く思わない <input type="range" id="ex${n}" value="0" name="ex" min="0" max="7"></input> 強く思う</p>
-      <span id="ex${n}-value" name="ex-value" class="ex-value"></span></div>`;
+      <span id="ex${n}-value" name="ex-value" class="ex-value">回答してください</span></div>`;
       Elem[g].innerHTML += html;
     }
     if (g < Elem.length-1) {
-      var html = `<div><button type="button" class="nb-button" onclick="back_div(k=${g+1});">戻る</button><button type="button" class="nb-button" onclick="next_div(k=${g+1});">次へ</button></div>`;
+      var html = `<div><button type="button" class="nb-button" onclick="back_div(k=${g+1});">戻る</button><button type="button" class="nb-button" onclick="is_answer(n=${g+1});">次へ</button></div>`;
       Elem[g].innerHTML += html;
     }else{
-      var html = `<div><button type="button" class="nb-button" onclick="back_div(k=${g+1});">戻る</button><button type="button" class="nb-button" onclick="get_value();">回答</button></div>`;
+      var html = `<div><button type="button" class="nb-button" onclick="back_div(k=${g+1});">戻る</button><button type="button" class="nb-button" onclick="is_answer(n=${g+1});">回答</button></div>`;
       Elem[g].innerHTML += html;
     }
   }

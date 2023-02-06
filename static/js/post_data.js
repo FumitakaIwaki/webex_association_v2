@@ -4,8 +4,9 @@ function get_value() {
   data['counter'] = Number(document.getElementById('counter').value);
   var id = Math.round(Math.random() * 10000000);
   data['id'] = (Array(7).join('0') + id).slice(-7);
-  document.getElementById('userid').innerHTML += data['id'];
+  document.getElementById('userid').innerHTML = "調査完了ID: " + data['id'];
 
+  data['language'] = Number(document.getElementById('language').value);
   elements = document.getElementsByName('jender');
   let len = elements.length;
   for (let i = 0; i < len; i++){
