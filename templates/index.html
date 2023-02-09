@@ -24,25 +24,29 @@
 
 <!-- 最初の画面 -->
   <div id="introduction" class="introduction" style="display: inline;">
-    <h2>可能な限りPCで参加してください</h2>
+    <h2 style="color: red;">ブラウザの「戻る」「再読み込み」機能を使用しないでください</h2>
     <h3>【日本語はあなたの母国語の1つですか？】</h3>
     <div>
-      <input type="radio" id="yes" value=1 name="language" checked><label for="yes">はい</label>
+      <input type="radio" id="yes" value=1 name="language" ><label for="yes">はい</label>
       <input type="radio" id="no" value=0 name="language"><label for="no">いいえ</label>
     </div>
     <h3>【あなたの性別を選択してください】</h3>
     <div>
-      <input type="radio" id="male" value=0 name="jender" checked><label for="male">男性</label>
-      <input type="radio" id="female" value=1 name="jender"><label for="female">女性</label>
       <input type="radio" id="others" value=2 name="jender"><label for="others">その他</label>
+      <input type="radio" id="female" value=1 name="jender"><label for="female">女性</label>
+      <input type="radio" id="male" value=0 name="jender"><label for="male">男性</label>
     </div>
       
     <h3>【あなたの年齢を入力してください】</h3>
       <div>
         <select type="number" id="age" name="age" value="40">
           <script>
-            for (let i=15; i < 101; i++) {
-              document.getElementById('age').innerHTML += `<option value="${i}">${i}</option>`;
+            for (let i=18; i < 101; i++) {
+              if (i == 40) {
+                document.getElementById('age').innerHTML += `<option value="${i}" selected>${i}</option>`;
+              }else{
+                document.getElementById('age').innerHTML += `<option value="${i}">${i}</option>`;
+              }
             }
           </script>
         </select>

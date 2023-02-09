@@ -29,7 +29,7 @@
 }
 /* 8件法の説明部分 */
 .point-scale {
-  margin: 0 35em;
+  margin: 0 35vw;
   background: linear-gradient(to right, #cfd6fa, pink);
   border-radius: 10px 10px 10px 10px;
 }
@@ -41,8 +41,8 @@
 }
 /* 実験の質問1つの「選択」部分 */
 .ex{
-  padding: 0.5em 1em;
-  margin: 2em 30em;
+  padding: 0.5px 1px;
+  margin: 25px 30vw;
   color: black;
   background: white;
   border-top: solid 5px #5d627b;
@@ -86,14 +86,14 @@
 /* PC画面より小さい画面 ~ タブレット用 */
 @media screen and (max-width: 1050px) {
   .point-scale {
-    margin: 0 30vw;
+    margin: 0 25vw;
     background: linear-gradient(to right, #cfd6fa, pink);
     border-radius: 10px 10px 10px 10px;
   }
   /* 実験の質問1つの「選択」部分 */
   .ex{
-    padding: 0.5em 1em;
-    margin: 2em 25vw;
+    padding: 0.5px 1px;
+    margin: 25px 25vw;
     color: black;
     background: white;
     border-top: solid 5px #5d627b;

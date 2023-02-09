@@ -6,7 +6,7 @@ function get_value() {
   data['id'] = (Array(7).join('0') + id).slice(-7);
   document.getElementById('userid').innerHTML = "調査完了ID: " + data['id'];
 
-  elements = Number(document.getElementsByName('language'));
+  elements = document.getElementsByName('language');
   for (let i = 0; i < elements.length; i++){
     if (elements.item(i).checked){
       data['language'] = Number(elements.item(i).value);
