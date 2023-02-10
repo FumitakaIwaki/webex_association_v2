@@ -5,6 +5,7 @@
 
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
+from waitress import serve
  
 app = Flask(__name__)
 # カウンター
@@ -38,4 +39,5 @@ def fin():
     return render_template('finish.html')
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    # app.run(host="0.0.0.0", port=5000, debug=True)
+    serve(app, host='0.0.0.0', port=5000)
