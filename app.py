@@ -8,6 +8,7 @@ import pandas as pd
 from waitress import serve
  
 app = Flask(__name__)
+app.logger.debug('DEBUG')
 # カウンター
 CNT = -1
 
@@ -39,5 +40,4 @@ def fin():
     return render_template('finish.html')
 
 if __name__ == "__main__":
-    # app.run(host="0.0.0.0", port=5000, debug=True)
-    serve(app, host='0.0.0.0', port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
