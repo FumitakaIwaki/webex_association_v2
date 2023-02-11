@@ -8,7 +8,6 @@ import pandas as pd
 from waitress import serve
  
 app = Flask(__name__)
-app.logger.debug('DEBUG')
 # カウンター
 CNT = -1
 
@@ -22,6 +21,7 @@ def index():
 def experiment():
     global CNT
     CNT+=1
+    print(f"No.{CNT} start ex")
 
     return render_template('index.html', cnt=CNT)
 
@@ -31,6 +31,7 @@ def post():
     data = request.get_json()
     res_df = pd.DataFrame(data, index=[data['counter']])
     res_df.to_csv(f"data/res{data['counter']}.csv", index=False)
+    print(f"***No.{data['counter']} port result")
 
     return jsonify(data)
 
@@ -40,4 +41,5 @@ def fin():
     return render_template('finish.html')
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    # app.run(host="0.0.0.0", port=5000, debug=True)
+    serve(app, host="0.0.0.0", port=5000)

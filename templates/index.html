@@ -13,15 +13,17 @@
 
 <script>
   window.onload = function() {
+    // 質問の埋め込み
     embed_block();
     rangevalue();
+    // ブラウザバックの制限
+    preventBrowserBack();
   }
 </script>
 
 <body>
 <!-- カウンター -->
   <input type="number" id="counter" name="counter" value={{cnt}} style="display: none;">
-  <!-- <input type="number" id="counter" name="counter" value={{cnt}}> -->
 
 <!-- 最初の画面 -->
   <div id="introduction" class="introduction" style="display: inline;">
