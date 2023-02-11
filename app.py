@@ -1,8 +1,16 @@
 # AWS EC2へのssh接続
 # ssh -i ~/.ssh/iwaki.pem ec2-user@  {Public IPv4 DNS}
+
+# githubからのクローン
+# git clone git@github.com:FumitakaIwaki/web_experiment_similarity.git
+
 # 起動(本番)
 # gunicorn --bind 0.0.0.0:5000 --daemon app:app
 # --workers n で同時アクセスをn人に制限できる
+
+# 終了(本番)
+# ps -ef | grep gunicorn でジョブを検索し
+# kill <ジョブ番号> で終了
 
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
