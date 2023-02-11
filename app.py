@@ -1,11 +1,11 @@
 # AWS EC2へのssh接続
 # ssh -i ~/.ssh/iwaki.pem ec2-user@  {Public IPv4 DNS}
 # 起動(本番)
-# waitress-serve --port=5000 app:app
+# gunicorn --bind 0.0.0.0:5000 --daemon app:app
+# --workers n で同時アクセスをn人に制限できる
 
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
-from waitress import serve
  
 app = Flask(__name__)
 # カウンター
@@ -40,6 +40,6 @@ def post():
 def fin():
     return render_template('finish.html')
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     # app.run(host="0.0.0.0", port=5000, debug=True)
-    serve(app, host="0.0.0.0", port=5000)
+    # serve(app, host="0.0.0.0", port=5000)
