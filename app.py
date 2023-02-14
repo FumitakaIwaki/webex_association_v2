@@ -2,30 +2,31 @@ from flask import Flask, render_template, request, jsonify
 import pandas as pd
  
 app = Flask(__name__)
-# カウンター
-CNT = -1
 
 # 導入画面
 @app.route("/")
 def index():
+    print("Join experiment")
     return render_template('header.html')
  
 # 実験画面
 @app.route("/experiment")
 def experiment():
-    global CNT
-    CNT+=1
-    print(f"No.{CNT} start ex")
 
-    return render_template('index.html', cnt=CNT)
+    return render_template('index.html')
 
 # データポスト
 @app.route("/post_data", methods=['GET', 'POST'])
 def post():
     data = request.get_json()
-    res_df = pd.DataFrame(data, index=[data['counter']])
-    res_df.to_csv(f"data/res{data['counter']}.csv", index=False)
-    print(f"***No.{data['counter']} port result")
+    res_df = pd.DataFrame(data, index=[0])
+    res_df.to_csv(f"data/res{data['id']}.csv", index=False)
+
+    df = pd.read_csv("data/dyna_result.csv")
+    df = pd.concat([df, res_df], axis=0)
+    df.to_csv("data/dyna_result.csv", index=False)
+
+    print(f"***ID:{data['id']} ports result")
 
     return jsonify(data)
 

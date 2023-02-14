@@ -1,10 +1,8 @@
 function get_value() {
   let data = {};
   
-  data['counter'] = Number(document.getElementById('counter').value);
-  var id = Math.round(Math.random() * 10000000);
-  data['id'] = (Array(7).join('0') + id).slice(-7);
-  document.getElementById('userid').innerHTML = "調査完了ID: " + data['id'];
+  data['qnum'] = Number(document.getElementById('qnum').value);
+  data['id'] = document.getElementById('userid').value;
 
   elements = document.getElementsByName('language');
   for (let i = 0; i < elements.length; i++){

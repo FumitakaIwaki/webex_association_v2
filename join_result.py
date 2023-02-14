@@ -1,14 +1,16 @@
 import pandas as pd
-import sys
+import glob
 
-N = int(sys.argv[1])
-df = pd.DataFrame()
+N = 9999999
+E = 96
+columns = ['qnum', 'id', 'language', 'jender', 'age']
+for i in range(E):
+  columns.append('ex'+str(i+1))
+df = pd.DataFrame(columns=columns)
+files = glob.glob("data/res*")
 
-for i in range(N+1):
-  try:
-    tmp = pd.read_csv(f"data/res{i}.csv")
-    df = pd.concat([df, tmp], axis=0)
-  except:
-    print(f"res{i}.csv is not found")
+for file in files:
+  tmp = pd.read_csv(file)
+  df = pd.concat([df, tmp], axis=0)
 
-df.to_csv("data/ex_result.csv", index=False)
+df.to_csv("data/ex_results.csv", index=False)

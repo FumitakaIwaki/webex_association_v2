@@ -22,8 +22,10 @@
 </script>
 
 <body>
-<!-- カウンター -->
-  <input type="number" id="counter" name="counter" value={{cnt}} style="display: none;">
+  <!-- <input type="number" id="qnum" name="qnum" style="display: none;">
+  <input type="text" id="userid" name="userid" style="display: none;"> -->
+  <input type="number" id="qnum" name="qnum">
+  <input type="text" id="userid" name="userid">
 
 <!-- 最初の画面 -->
   <div id="introduction" class="introduction" style="display: inline;">
@@ -56,6 +58,7 @@
       </div>
 
     <h2>質問は全部で94問あります。</h2>
+    <h3>しっかり質問を読んでいただいているかを確認する問題がいくつか含まれています。</h3>
 
     <div class="button-header-div"><button class="button-header" type="button" onclick="next_div(k=0);">次に進む</button></div>
   </div>
@@ -73,7 +76,7 @@
 <!-- 終了画面 -->
   <div id="end" class="end" style="display: none;">
     <h3>お疲れ様でした。</h3>
-    <h2 id="userid" class="userid"></h2>
+    <h2 style="color: red;">調査完了ID：<span id="userid_display"></span></h2>
     <h3>
       上のIDをCroudWorksに入力し、画面を閉じてください。<br>
       ご協力ありがとうございました。

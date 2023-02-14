@@ -96,9 +96,17 @@ function embed_text() {
   const words = read_json("static/js/words.json");
   const questions = read_json("static/js/questions.json");
   const partitions = read_json("static/js/partitions.json");
-  // カウンター
-  let cnt  = document.getElementById("counter").value;
-  let qnums = partitions['p'+cnt];
+  // 乱数
+  // var rand = Math.round(Math.random() * 10000000);
+  var rand = Math.random();
+  // 調査完了ID
+  var id = (Array(7).join('0') + Math.round(rand * 10000000)).slice(-7);
+  document.getElementById('userid_display').innerHTML = id;
+  document.getElementById('userid').value = id;
+  // 問題番号
+  var qnum = Math.round(rand * 240);
+  document.getElementById('qnum').value = qnum;
+  let qnums = partitions['p'+qnum];
   
   // 問題ラベル
   const ElemT = document.getElementsByName("lab-t");
