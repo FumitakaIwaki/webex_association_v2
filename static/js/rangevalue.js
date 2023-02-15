@@ -12,7 +12,7 @@ function is_answer(n) {
     // 全て回答しているかどうか
     if (choicedValueElem[i].innerText == "回答してください") {
       alert("回答していない質問があります");
-      // Flag = false;
+      Flag = false;
       break;
     }
   }
