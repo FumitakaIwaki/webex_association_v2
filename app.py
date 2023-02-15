@@ -22,9 +22,9 @@ def post():
     res_df = pd.DataFrame(data, index=[0])
     res_df.to_csv(f"data/res{data['id']}.csv", index=False)
 
-    df = pd.read_csv("data/dyna_result.csv")
+    df = pd.read_csv("data/dyna_results.csv")
     df = pd.concat([df, res_df], axis=0)
-    df.to_csv("data/dyna_result.csv", index=False)
+    df.to_csv("data/dyna_results.csv", index=False)
 
     print(f"***ID:{data['id']} ports result")
 
