@@ -21,8 +21,6 @@ for i in range(W):
     if i != j:
       q_dict[qnums[k]] = [i, j]
       k += 1
-q_dict['imc1'] = [0, 1]
-q_dict['imc2'] = [2, 3]
 
 # 人数分のパーティション
 N = 240
@@ -36,8 +34,6 @@ for i in range(N):
     k = 0
     random.shuffle(qnums)
   p_dict['p'+str(i)] = qnums[partition*k:partition*(k+1)]
-  p_dict['p'+str(i)].insert(39, 'imc1')
-  p_dict['p'+str(i)].insert(79, 'imc2')
   k+=1
   
 

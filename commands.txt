@@ -1,0 +1,27 @@
+<ローカルでの操作>
+インスタンスID: i-0dd2e7228122d2cd1
+AWS EC2へのssh接続
+ssh -i ~/.ssh/iwaki.pem ec2-user@  {Public IPv4 DNS}
+
+結果のダウンロード
+shファイル内のDNSを適切なものにする必要あり
+source load_result.sh
+
+<インスタンスでの操作>
+githubからのクローン
+git clone git@github.com:FumitakaIwaki/web_experiment_similarity.git
+
+起動(本番)
+gunicorn --bind 0.0.0.0:5000 --daemon app:app
+--workers n でプロセス数を指定できる
+gunicorn --workers 240 --threads 10 --bind 0.0.0.0:5000 --daemon app:app
+
+終了(本番)
+ps -ef | grep gunicorn でジョブを検索し
+kill <ジョブ番号> で終了 3376
+
+結果の結合
+python3 join_result.py <結合ファイル数>
+
+個人毎のの結果ファイル削除
+source clear.sh

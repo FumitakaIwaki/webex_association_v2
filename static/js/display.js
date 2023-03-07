@@ -104,7 +104,12 @@ function embed_text() {
   document.getElementById('userid_display').innerHTML = id;
   document.getElementById('userid').value = id;
   // 問題番号
-  var qnum = Math.round(rand * 240);
+  // 乱数で問題選択
+  // let qnum = Math.round(rand * 240);
+  // document.getElementById('qnum').value = qnum;
+  // let qnums = partitions['p'+qnum];
+  // counterで問題選択
+  let qnum = document.getElementById('counter').value;
   document.getElementById('qnum').value = qnum;
   let qnums = partitions['p'+qnum];
   
