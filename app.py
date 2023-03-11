@@ -23,6 +23,9 @@ def experiment():
             counter+=1
         pickle.dump(counter, f)
 
+    df = pd.DataFrame({'counter':counter}, index=[0])
+    df.to_csv(f"data/res{counter}.csv", index=False)
+
     return render_template('index.html', cnt=counter)
 
 # データポスト
@@ -46,5 +49,5 @@ def fin():
     return render_template('finish.html')
 
 # if __name__ == "__main__":
-    # app.run(host="0.0.0.0", port=5000, debug=True)
+#     app.run(host="0.0.0.0", port=5000, debug=True)
     # serve(app, host="0.0.0.0", port=5000)
