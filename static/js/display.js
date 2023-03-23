@@ -1,5 +1,5 @@
 // 質問数
-const N = 96; // 94問 + IMC2問
+const N = 94;
 // 1ページに表示する質問数
 const E = 25;
 // 質問ページ数
@@ -49,19 +49,7 @@ function embed_block() {
     for (let i=0; i < E; i++) {
       let n = (g*E)+i+1;
       if (n > N) {break;}
-      // 40問目にIMC
-      if (n == 40) {
-        var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>は<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>に似ていると思いますか？<br>質問に回答せず<span style="font-weight: bold;">4</span>を選択してください
-        <p>全く思わない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> 強く思う</p>
-        <span id="ex${n}-value" name="ex-value" class="ex-value">回答してください</span></div>`;
-        Elem[g].innerHTML += html;
-      // 80問目にIMC
-      }else if (n == 80) {
-        var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>は<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>に似ていると思いますか？<br>質問に回答せず<span style="font-weight: bold;">4</span>を選択してください
-        <p>全く思わない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> 強く思う</p>
-        <span id="ex${n}-value" name="ex-value" class="ex-value">回答してください</span></div>`;
-        Elem[g].innerHTML += html;
-      }else{
+      else{
         var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>は<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>に似ていると思いますか？
         <p>全く思わない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> 強く思う</p>
         <span id="ex${n}-value" name="ex-value" class="ex-value">回答してください</span></div>`;

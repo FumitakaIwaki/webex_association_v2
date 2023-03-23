@@ -3,7 +3,7 @@ import pickle
 
 def init():
   # 追記保存の回答結果csv
-  E = 96
+  E = 94
   columns = ['qnum', 'id', 'language', 'jender', 'age']
   for i in range(E):
     columns.append('ex'+str(i+1))

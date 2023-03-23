@@ -23,7 +23,7 @@ for i in range(W):
       k += 1
 
 # 人数分のパーティション
-N = 240
+N = 1200
 groups = 24
 partition = 94
 p_dict = {} # 参加者piと対応する問題番号の配列の辞書

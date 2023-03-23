@@ -12,12 +12,14 @@ def index():
 # 実験画面
 @app.route("/experiment")
 def experiment():
+    # 被験者数
+    N = 1200
     # カウンタの読み込み
     with open("counter.pkl", "rb") as f:
         counter = pickle.load(f)
     # カウンタのインクリメント & 更新
     with open("counter.pkl", "wb") as f:
-        if counter > 238:
+        if counter > (N-2):
             counter = 0
         else:
             counter+=1
