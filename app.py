@@ -25,8 +25,8 @@ def experiment():
             counter+=1
         pickle.dump(counter, f)
 
-    df = pd.DataFrame({'counter':counter}, index=[0])
-    df.to_csv(f"data/res{counter}.csv", index=False)
+    # df = pd.DataFrame({'counter':counter}, index=[0])
+    # df.to_csv(f"data/res{counter}.csv", index=False)
 
     return render_template('index.html', cnt=counter)
 
@@ -40,8 +40,6 @@ def post():
     df = pd.read_csv("data/dyna_results.csv")
     df = pd.concat([df, res_df], axis=0)
     df.to_csv("data/dyna_results.csv", index=False)
-
-    print(f"***ID:{data['id']} ports result")
 
     return jsonify(data)
 
