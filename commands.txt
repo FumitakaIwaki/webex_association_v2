@@ -14,7 +14,7 @@ git clone git@github.com:FumitakaIwaki/web_experiment_similarity.git
 起動(本番)
 gunicorn --bind 0.0.0.0:5000 --daemon app:app
 --workers n でプロセス数を指定できる
-gunicorn --workers 240 --threads 10 --bind 0.0.0.0:5000 --daemon app:app
+gunicorn --workers 50 --threads 24 --bind 0.0.0.0:5000 --daemon app:app
 
 終了(本番)
 ps -ef | grep gunicorn でジョブを検索し
