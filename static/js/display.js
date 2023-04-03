@@ -60,8 +60,8 @@ function embed_block() {
       let n = (g*E)+i+1;
       if (n > N) {break;}
       else{
-        var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>から<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>を連想しますか？
-        <p>全く連想しない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> 強く連想する</p>
+        var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>と<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>は似ていますか？
+        <p>全く似ていない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> とても似ている</p>
         <span id="ex${n}-value" name="ex-value" class="ex-value">回答してください</span></div>`;
         Elem[g].innerHTML += html;
       }
