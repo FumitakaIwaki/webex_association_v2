@@ -5,12 +5,12 @@ import pickle
 app = Flask(__name__)
 
 # 導入画面
-@app.route("/")
-def index():
-    return render_template('header.html')
+# @app.route("/")
+# def index():
+#     return render_template('header.html')
  
 # 実験画面
-@app.route("/experiment")
+@app.route("/")
 def experiment():
     # 被験者数
     N = 1200
@@ -24,9 +24,6 @@ def experiment():
         else:
             counter+=1
         pickle.dump(counter, f)
-
-    # df = pd.DataFrame({'counter':counter}, index=[0])
-    # df.to_csv(f"data/res{counter}.csv", index=False)
 
     return render_template('index.html', cnt=counter)
 

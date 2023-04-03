@@ -19,7 +19,7 @@ function is_answer(n) {
   if (Flag) {
     if (n != G) {
       // 次のページへ
-      next_div(k=n);
+      next_div(k=(n+1));
     }else{
       // 最後のページの場合、回答送信
       get_value();

@@ -8,28 +8,38 @@ const G = Math.ceil(N / E);
 // 「次へ」の操作
 function next_div(k) {
   if (k == 0) {
+    document.getElementById("header").style.display = "none";
+    document.getElementById("introduction").style.display = "inline";
+    window.scroll({top: 0, behavior: 'auto'});
+  }
+  if (k == 1) {
     document.getElementById("introduction").style.display = "none";
     document.getElementById("experiment").style.display = "inline";
     window.scroll({top: 0, behavior: 'auto'});
-    document.getElementById('page').innerText = "質問ページ数 ： " + (k+1) + " / " + G;
+    document.getElementById('page').innerText = "質問ページ数 ： " + k + " / " + G;
   }else{
-    document.getElementById("g"+(k-1)).style.display = "none";
-    document.getElementById("g"+k).style.display = "inline";
+    document.getElementById("g"+(k-2)).style.display = "none";
+    document.getElementById("g"+(k-1)).style.display = "inline";
     window.scroll({top: 0, behavior: 'auto'});
-    document.getElementById('page').innerText = "質問ページ数 ： " + (k+1) + " / " + G;
+    document.getElementById('page').innerText = "質問ページ数 ： " + k + " / " + G;
   }
 }
 // 「戻る」の操作
 function back_div(k) {
-  if (k == 1) {
+  // if (k == 1) {
+  //   document.getElementById("header").style.display = "inline";
+  //   document.getElementById("introduction").style.display = "none";
+  //   window.scroll({top: 0, behavior: 'top'});
+  // }
+  if (k == 2) {
     document.getElementById("introduction").style.display = "inline";
     document.getElementById("experiment").style.display = "none";
     window.scroll({top: 0, behavior: 'auto'});
   }else{
-    document.getElementById("g"+(k-1)).style.display = "none";
-    document.getElementById("g"+(k-2)).style.display = "inline";
+    document.getElementById("g"+(k-3)).style.display = "inline";
+    document.getElementById("g"+(k-2)).style.display = "none";
     window.scroll({top: 0, behavior: 'auto'});
-    document.getElementById('page').innerText = "質問ページ数 ： " + (k-1) + " / " + G;
+    document.getElementById('page').innerText = "質問ページ数 ： " + (k-2) + " / " + G;
   }
 }
 
@@ -57,10 +67,10 @@ function embed_block() {
       }
     }
     if (g < Elem.length-1) {
-      var html = `<div><button type="button" class="nb-button" onclick="back_div(k=${g+1});">戻る</button><button type="button" class="nb-button" onclick="is_answer(n=${g+1});">次へ</button></div>`;
+      var html = `<div><button type="button" class="nb-button" onclick="back_div(k=${g+2});">戻る</button><button type="button" class="nb-button" onclick="is_answer(n=${g+1});">次へ</button></div>`;
       Elem[g].innerHTML += html;
     }else{
-      var html = `<div><button type="button" class="nb-button" onclick="back_div(k=${g+1});">戻る</button><button type="button" class="nb-button" onclick="is_answer(n=${g+1});">回答</button></div>`;
+      var html = `<div><button type="button" class="nb-button" onclick="back_div(k=${g+2});">戻る</button><button type="button" class="nb-button" onclick="is_answer(n=${g+1});">回答</button></div>`;
       Elem[g].innerHTML += html;
     }
   }
