@@ -13,7 +13,7 @@ app = Flask(__name__)
 @app.route("/")
 def experiment():
     # 被験者数
-    N = 1200
+    N = 480
     # カウンタの読み込み
     with open("counter.pkl", "rb") as f:
         counter = pickle.load(f)

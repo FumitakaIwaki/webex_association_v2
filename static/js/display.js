@@ -1,5 +1,11 @@
 // 質問数
-const N = 96; // 94問 + catch trial * 2
+const Q = 94;
+// catch trialの数
+const catch_trial = 2
+// double-passの数
+const double_pass = 20
+// 上の総計
+const N = Q + catch_trial + double_pass
 // 1ページに表示する質問数
 const E = 25;
 // 質問ページ数

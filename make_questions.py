@@ -23,9 +23,10 @@ for i in range(W):
       k += 1
 
 # 人数分のパーティション
-N = 1200
+N = 480
 groups = 24
 partition = 94
+double_pass = 20
 p_dict = {} # 参加者piと対応する問題番号の配列の辞書
 k = 0
 random.shuffle(qnums)
@@ -33,7 +34,7 @@ for i in range(N):
   if k == groups:
     k = 0
     random.shuffle(qnums)
-  p_dict['p'+str(i)] = qnums[partition*k:partition*(k+1)]
+  p_dict['p'+str(i)] = qnums[partition*k:partition*(k+1)] + random.sample(qnums[partition*k:partition*(k+1)], double_pass)
   k+=1
   
 
