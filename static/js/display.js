@@ -1,5 +1,5 @@
 // 質問数
-const N = 94;
+const N = 96; // 94問 + catch trial * 2
 // 1ページに表示する質問数
 const E = 25;
 // 質問ページ数
@@ -26,11 +26,6 @@ function next_div(k) {
 }
 // 「戻る」の操作
 function back_div(k) {
-  // if (k == 1) {
-  //   document.getElementById("header").style.display = "inline";
-  //   document.getElementById("introduction").style.display = "none";
-  //   window.scroll({top: 0, behavior: 'top'});
-  // }
   if (k == 2) {
     document.getElementById("introduction").style.display = "inline";
     document.getElementById("experiment").style.display = "none";
@@ -59,6 +54,18 @@ function embed_block() {
     for (let i=0; i < E; i++) {
       let n = (g*E)+i+1;
       if (n > N) {break;}
+      else if (n == 40){ // 40問目にcatch trial 1
+        var html = `<div class="ex">【質問${n}】<span style="font-weight: bold;">2</span>を選択してください
+        <p><input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input></p>
+        <span id="ex${n}-value" name="ex-value" class="ex-value">回答してください</span></div>`;
+        Elem[g].innerHTML += html;
+      }
+      else if (n == 80){ // 80問目にcatch trial 2
+        var html = `<div class="ex">【質問${n}】<span style="font-weight: bold;">5</span>選択してください
+        <p><input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input></p>
+        <span id="ex${n}-value" name="ex-value" class="ex-value">回答してください</span></div>`;
+        Elem[g].innerHTML += html;
+      }
       else{
         var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>と<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>は似ていますか？
         <p>全く似ていない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> とても似ている</p>
