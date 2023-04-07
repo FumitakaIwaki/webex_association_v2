@@ -67,14 +67,14 @@ function embed_block() {
         Elem[g].innerHTML += html;
       }
       else if (n == 80){ // 80問目にcatch trial 2
-        var html = `<div class="ex">【質問${n}】<span style="font-weight: bold;">5</span>選択してください
+        var html = `<div class="ex">【質問${n}】<span style="font-weight: bold;">5</span>を選択してください
         <p><input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input></p>
         <span id="ex${n}-value" name="ex-value" class="ex-value">回答してください</span></div>`;
         Elem[g].innerHTML += html;
       }
       else{
-        var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>と<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>は似ていますか？
-        <p>全く似ていない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> とても似ている</p>
+        var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>から<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>を連想しますか？
+        <p>全く連想しない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> 強く連想する</p>
         <span id="ex${n}-value" name="ex-value" class="ex-value">回答してください</span></div>`;
         Elem[g].innerHTML += html;
       }
