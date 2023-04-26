@@ -27,6 +27,33 @@ function is_answer(n) {
   }
 }
 
+function is_answer_intro() {
+  var flag_lang = false;
+  var flag_jend = false;
+
+  langs = document.getElementsByName('language');
+  jends = document.getElementsByName('jender');
+
+  for (var i=0; i < langs.length;i++) {
+    console.log(langs[i])
+    if (langs[i].checked) {
+      flag_lang = true;
+    }
+  }
+  for (var i=0; i < jends.length;i++) {
+    console.log(jends[i])
+    if (jends[i].checked) {
+      flag_jend = true;
+    }
+  }
+
+  if (flag_lang && flag_jend) {
+    next_div(k=1);
+  } else {
+    alert("回答していない質問があります")
+  }
+}
+
 // inputイベント時に値をセットする関数
 const rangeOnChange = (e) => {
   let id = Number(e.target.id.replace("ex", "")) -1;
