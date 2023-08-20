@@ -74,7 +74,7 @@ function embed_block() {
       }
       else{
         var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>に<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>は関連していますか？
-        <p>全く連想しない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> 強く連想する</p>
+        <p>全く関連しない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> 強く関連する</p>
         <span id="ex${n}-value" name="ex-value" class="ex-value">回答してください</span></div>`;
         Elem[g].innerHTML += html;
       }
