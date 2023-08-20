@@ -20,6 +20,41 @@
   height: 100px;  
 }
 
+/* インストラクション画面 */
+.instruction {
+  padding: 20px;
+  text-align: center;
+  height: 100px;
+}
+.instruction-box {
+  position: relative;
+  margin: 2em 20vw;
+  padding: 0.5em 1em;
+  border: solid 3px #62c1ce;
+  text-align: left;
+}
+.instruction-title {
+  position: absolute;
+  display: inline-block;
+  top: -27px;
+  left: -3px;
+  padding: 0 9px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 17px;
+  background: #62c1ce;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 5px 5px 0 0;
+}
+.instruction-text {
+  font-size: 20px;
+}
+.instruction-box p {
+  margin: 0;
+  padding: 0;
+}
+
 /* 実験ページ */
 /* 実験全体 */
 .experiment {

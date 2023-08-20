@@ -20,25 +20,35 @@ function next_div(k) {
   }
   if (k == 1) {
     document.getElementById("introduction").style.display = "none";
+    document.getElementById("instruction").style.display = "inline";
+    window.scroll({top: 0, behavior: 'auto'});
+  }
+  if (k == 2) {
+    document.getElementById("instruction").style.display = "none";
     document.getElementById("experiment").style.display = "inline";
     window.scroll({top: 0, behavior: 'auto'});
-    document.getElementById('page').innerText = "質問ページ数 ： " + k + " / " + G;
+    document.getElementById('page').innerText = "質問ページ数 ： " + (k-1) + " / " + G;
   }else{
-    document.getElementById("g"+(k-2)).style.display = "none";
-    document.getElementById("g"+(k-1)).style.display = "inline";
+    document.getElementById("g"+(k-3)).style.display = "none";
+    document.getElementById("g"+(k-2)).style.display = "inline";
     window.scroll({top: 0, behavior: 'auto'});
-    document.getElementById('page').innerText = "質問ページ数 ： " + k + " / " + G;
+    document.getElementById('page').innerText = "質問ページ数 ： " + (k-1) + " / " + G;
   }
 }
 // 「戻る」の操作
 function back_div(k) {
   if (k == 2) {
     document.getElementById("introduction").style.display = "inline";
+    document.getElementById("instruction").style.display = "none";
+    window.scroll({top: 0, behavior: 'auto'});
+  }
+  if (k == 3) {
+    document.getElementById("instruction").style.display = "inline";
     document.getElementById("experiment").style.display = "none";
     window.scroll({top: 0, behavior: 'auto'});
   }else{
-    document.getElementById("g"+(k-3)).style.display = "inline";
-    document.getElementById("g"+(k-2)).style.display = "none";
+    document.getElementById("g"+(k-4)).style.display = "inline";
+    document.getElementById("g"+(k-3)).style.display = "none";
     window.scroll({top: 0, behavior: 'auto'});
     document.getElementById('page').innerText = "質問ページ数 ： " + (k-2) + " / " + G;
   }
@@ -74,16 +84,16 @@ function embed_block() {
       }
       else{
         var html = `<div class="ex">【質問${n}】<label name="lab-t" class="lab-t"></label>に<label for="ex${n}" id="lab-ex${n}" name="lab-ex" class="lab-ex"></label>は関連していますか？
-        <p>全く関連しない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> 強く関連する</p>
+        <p>全く関連していない <input type="range" id="ex${n}" value="3" name="ex" min="0" max="7"></input> とても関連している</p>
         <span id="ex${n}-value" name="ex-value" class="ex-value">回答してください</span></div>`;
         Elem[g].innerHTML += html;
       }
     }
     if (g < Elem.length-1) {
-      var html = `<div><button type="button" class="nb-button" onclick="back_div(k=${g+2});">戻る</button><button type="button" class="nb-button" onclick="is_answer(n=${g+1});">次へ</button></div>`;
+      var html = `<div><button type="button" class="nb-button" onclick="back_div(k=${g+3});">戻る</button><button type="button" class="nb-button" onclick="is_answer(n=${g+1});">次へ</button></div>`;
       Elem[g].innerHTML += html;
     }else{
-      var html = `<div><button type="button" class="nb-button" onclick="back_div(k=${g+2});">戻る</button><button type="button" class="nb-button" onclick="is_answer(n=${g+1});">回答</button></div>`;
+      var html = `<div><button type="button" class="nb-button" onclick="back_div(k=${g+3});">戻る</button><button type="button" class="nb-button" onclick="is_answer(n=${g+1});">回答</button></div>`;
       Elem[g].innerHTML += html;
     }
   }

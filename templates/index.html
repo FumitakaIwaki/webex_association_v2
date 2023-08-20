@@ -29,7 +29,7 @@
 <!-- 説明画面 -->
  <div id="header" class="header" style="display: inline;">
   <h2>【本調査の目的】</h2>
-    <div>この調査の目的は、人間がある感情を表す単語から別の感情を表す単語を、どれくらい連想するかを調べることです。</div>
+    <div>この調査の目的は、人間がある感情を表す単語から別の感情を表す単語を、どれくらい関連していると判断するかを調べることです。</div>
 
     <h2>【本調査の回答方法】</h2>
     <div>調査の所要時間はおよそ10分程度です。 正しい回答・誤った回答というものはありませんので、ご自身の考えた通りに回答を進めてください。</div>
@@ -61,12 +61,12 @@
   <div id="introduction" class="introduction" style="display: none;">
     <h2 style="color: red;">ブラウザの「戻る」「再読み込み」機能を使用しないでください</h2>
     <h3>【日本語はあなたの母国語の1つですか？】</h3>
-    <div id="lang">
+    <div>
       <input type="radio" id="yes" value=1 name="language" ><label for="yes">はい</label>
       <input type="radio" id="no" value=0 name="language"><label for="no">いいえ</label>
     </div>
     <h3>【あなたの性別を選択してください】</h3>
-    <div id="jend">
+    <div>
       <input type="radio" id="others" value=2 name="jender"><label for="others">その他</label>
       <input type="radio" id="female" value=1 name="jender"><label for="female">女性</label>
       <input type="radio" id="male" value=0 name="jender"><label for="male">男性</label>
@@ -87,9 +87,22 @@
         </select>
       </div>
 
-    <h2>質問は全部で116問あります。</h2>
-
     <div class="button-header-div"><button class="button-header" type="button" onclick="is_answer_intro();">次に進む</button></div>
+  </div>
+
+<!-- インストラクション画面 -->
+  <div id="instruction" class="instruction" style="display: none;">
+    <div style="font-size: 18px; font-weight: bold;">
+      次のページから実験が開始されます。<br>
+      以下に「類似」と「関連」の違いについての記載があります。<br>
+      よく読んでから実験を開始してください。
+    </div>
+    <div class="instruction-box">
+      <span class="instruction-title">インストラクション：「類似」と「関連」の違いを示す例</span>
+      <p class="instruction-text">「車」と「タイヤ」について、タイヤは車のパーツであるという意味で「関連」していますが、車そのものとは異なるため、あまり「類似」はしていません。</p>
+    </div>
+    <h2>質問は全部で116問あります。</h2>
+    <div class="button-header-div"><button type="button" class="button-header" onclick="back_div(k=2);">戻る</button><button type="button" class="button-header" onclick="next_div(k=2);">開始</button></div>
   </div>
 
 <!-- 実験の画面 -->
