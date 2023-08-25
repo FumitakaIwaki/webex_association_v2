@@ -23,5 +23,5 @@ kill <ジョブ番号> で終了 3376
 結果の結合
 python3 join_result.py <結合ファイル数>
 
-個人毎のの結果ファイル削除
+個人毎の結果ファイル削除
 source clear.sh
